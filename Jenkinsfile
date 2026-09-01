@@ -8,10 +8,10 @@ pipeline {
             }
         }
         stage('Code Quality') {
-            steps {
-                bat 'call venv\\Scripts\\activate && flake8 cart.py orders.py || true'
-            }
-        }
+    steps {
+        bat 'call venv\\Scripts\\activate && flake8 cart.py orders.py || exit 0'
+    }
+}
         stage('Test') {
             steps {
                 bat 'call venv\\Scripts\\activate && pytest'
